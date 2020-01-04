@@ -70,6 +70,122 @@ function App() {
           bottom: 10
         }}
       >
+        <defs>
+          <filter
+            id="pink-glow"
+            filterUnits="userSpaceOnUse"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+          >
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="2"
+              result="blur2"
+            />
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="4"
+              result="blur4"
+            />
+
+            <feMerge result="blur-merged">
+              <feMergeNode in="blur2" />
+              <feMergeNode in="blur4" />
+            </feMerge>
+
+            <feColorMatrix
+              result="pink-blur"
+              in="blur-merged"
+              type="matrix"
+              values="1 0    0    0 0
+                      0 0.06 0    0 0
+                      0 0    0.44 0 0
+                      0 0    0    1 0"
+            />
+            <feMerge>
+              <feMergeNode in="pink-blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter
+            id="orange-glow"
+            filterUnits="userSpaceOnUse"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+          >
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="2"
+              result="blur2"
+            />
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="4"
+              result="blur4"
+            />
+
+            <feMerge result="blur-merged">
+              <feMergeNode in="blur2" />
+              <feMergeNode in="blur4" />
+            </feMerge>
+
+            <feColorMatrix
+              result="orange-blur"
+              in="blur-merged"
+              type="matrix"
+              values="1 0    0    0 0
+                      0 0.34 0    0 0
+                      0 0    0.06 0 0
+                      0 0    0    1 0"
+            />
+            <feMerge>
+              <feMergeNode in="orange-blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter
+            id="blue-glow"
+            filterUnits="userSpaceOnUse"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+          >
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="2"
+              result="blur2"
+            />
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="4"
+              result="blur4"
+            />
+
+            <feMerge result="blur-merged">
+              <feMergeNode in="blur2" />
+              <feMergeNode in="blur4" />
+            </feMerge>
+
+            <feColorMatrix
+              result="blue-blur"
+              in="blur-merged"
+              type="matrix"
+              values="0.06 0    0 0 0
+                      0    0.44 0 0 0
+                      0    0    1 0 0
+                      0    0    0 1 0"
+            />
+            <feMerge>
+              <feMergeNode in="blue-blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
