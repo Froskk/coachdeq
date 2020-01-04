@@ -1,8 +1,10 @@
 import { NowRequest, NowResponse } from "@now/node";
 import { makeEntries } from "./_utils/makeEntries";
 
-export default (req: NowRequest, res: NowResponse) => {
+const get = (req, res) => {
   const singleSeries = makeEntries();
 
-  res.json(singleSeries);
+  res.status(200).json({ singleSeries });
 };
+
+export default get(NowRequest, NowResponse);
