@@ -12,7 +12,7 @@ export const makeEntries = () => {
       total += reading;
 
       return {
-        x: i,
+        date: i,
         reading,
         average: total / (i + 1)
       };
