@@ -1,13 +1,16 @@
 import React from "react";
+import { makeEntries } from "./api/_utils/makeEntries";
 import { BaseChart } from "./Chart";
-import { data } from "./data";
 import "./App.css";
+
+const data = makeEntries();
+console.log(data);
 
 function App() {
   return (
-    <div className="App">
-      <BaseChart data={data}></BaseChart>
-    </div>
+    <main className="App">
+      <BaseChart data={data} loading={false}></BaseChart>
+    </main>
   );
 }
 
